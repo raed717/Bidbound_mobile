@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ProjectsActivity">
 
     <TextView
         android:id="@+id/textView20"
@@ -86,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:padding="10sp"
-                android:text="TextView"
+                android:text="Health"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
@@ -95,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:padding="10sp"
-                android:text="TextView"
+                android:text="Active"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
@@ -107,8 +108,8 @@
 
             <ImageButton
                 android:id="@+id/DetailsButton"
-                android:layout_width="34dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:padding="5sp"
                 app:srcCompat="@android:drawable/ic_dialog_info" />
 
@@ -133,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:padding="10sp"
-                android:text="TextView"
+                android:text="Ecommerce"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
@@ -142,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:padding="10sp"
-                android:text="TextView"
+                android:text="Finished"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
@@ -151,17 +152,15 @@
                 android:layout_height="wrap_content"
                 android:padding="10sp"
                 android:text="09/11/2007" />
+
+            <ImageButton
+                android:id="@+id/detailsButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5sp"
+                app:srcCompat="@android:drawable/ic_dialog_info" />
         </TableRow>
     </TableLayout>
-
-    <ImageButton
-        android:id="@+id/DeleteButton"
-        android:layout_width="35dp"
-        android:layout_height="29dp"
-        android:padding="5sp"
-        app:srcCompat="@android:drawable/ic_delete"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="153dp" />
 
     <SearchView
         android:layout_width="0dp"
