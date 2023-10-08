@@ -6,13 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ProjectsActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="419dp"
+        android:layout_height="733dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        app:srcCompat="@drawable/wallpaper2" />
+
     <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
+        android:id="@+id/title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="All projects"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:background="#A8000000"
+        android:text="All Projects"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -32,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:padding="10sp"
-                android:text="Name" />
+                android:text="Name"
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -41,7 +58,7 @@
                 android:layout_column="1"
                 android:padding="10sp"
                 android:text="Subject"
-                android:textColor="@color/black" />
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -50,21 +67,23 @@
                 android:layout_column="2"
                 android:padding="10sp"
                 android:text="Status"
-                android:textColor="@color/black" />
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:text="Start Date" />
+                android:text="Start Date"
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:text="Actions" />
+                android:text="Actions"
+                android:textColor="#FFFFFF" />
 
         </TableRow>
 
@@ -79,7 +98,7 @@
                 android:layout_column="0"
                 android:padding="10sp"
                 android:text="Project 1"
-                android:textColor="@color/black" />
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -88,7 +107,8 @@
                 android:layout_column="1"
                 android:padding="10sp"
                 android:text="Health"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="#3C94C6"
+                android:textColorHighlight="#FF0000" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -97,14 +117,17 @@
                 android:layout_column="2"
                 android:padding="10sp"
                 android:text="Active"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="#3C94C6"
+                android:textColorHighlight="#FF0000" />
 
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:text="08/07/2023" />
+                android:text="08/07/2023"
+                android:textColor="#3C94C6"
+                android:textColorHighlight="#FF0000" />
 
             <ImageButton
                 android:id="@+id/DetailsButton"
@@ -126,7 +149,7 @@
                 android:layout_column="0"
                 android:padding="10sp"
                 android:text="Project 2"
-                android:textColor="@color/black" />
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -135,7 +158,8 @@
                 android:layout_column="1"
                 android:padding="10sp"
                 android:text="Ecommerce"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="#3C94C6"
+                android:textColorHighlight="#FF0000" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -144,14 +168,17 @@
                 android:layout_column="2"
                 android:padding="10sp"
                 android:text="Finished"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="#3C94C6"
+                android:textColorHighlight="#FF0000" />
 
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:text="09/11/2007" />
+                android:text="09/11/2007"
+                android:textColor="#3C94C6"
+                android:textColorHighlight="#FF0000" />
 
             <ImageButton
                 android:id="@+id/detailsButton2"
@@ -163,10 +190,22 @@
     </TableLayout>
 
     <SearchView
-        android:layout_width="0dp"
-        android:layout_height="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/searchView"
+        android:layout_width="229dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintStart_toEndOf="@+id/AddProjectB"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/AddProjectB"
+        android:layout_width="39dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

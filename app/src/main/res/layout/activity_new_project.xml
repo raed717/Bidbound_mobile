@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".NewProject">
 
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="671dp"
-        android:layout_height="864dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView4"
+        android:layout_width="403dp"
+        android:layout_height="608dp"
+        app:layout_constraintBottom_toTopOf="@+id/Cancel_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title"
-        app:srcCompat="@drawable/android_wallpaper_tech" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:srcCompat="@drawable/wallpaper2" />
 
     <TextView
         android:id="@+id/title"
