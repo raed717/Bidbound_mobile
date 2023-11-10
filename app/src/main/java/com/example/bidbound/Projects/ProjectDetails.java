@@ -1,8 +1,10 @@
-package com.example.bidbound;
+package com.example.bidbound.Projects;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.bidbound.R;
 
 public class ProjectDetails extends AppCompatActivity {
 
