@@ -14,12 +14,11 @@ public class user {
     public  String email ;
     @ColumnInfo
 
-    public  String pasword ;
+    public  String password ;
 
-    public user(int id, String username, String email, String pasword) {
-        this.id = id;
-        this.username = username;
+    public user( String username, String email, String password) {
+         this.username = username;
         this.email = email;
-        this.pasword = pasword;
+        this.password = password;
     }
 }

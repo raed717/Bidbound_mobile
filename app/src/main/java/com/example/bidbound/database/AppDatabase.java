@@ -10,12 +10,10 @@ import com.example.bidbound.entities.user;
 
 
 @androidx.room.Database(entities = {user.class}, version = 1, exportSchema = false)
-
 public abstract class AppDatabase extends RoomDatabase {
 
 
     private static  AppDatabase instance ;
-
     public abstract UserDao userDAO();
 
 
