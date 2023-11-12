@@ -1,9 +1,7 @@
 package com.example.bidbound.database;
 import android.content.Context;
-
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-
 import com.example.bidbound.DAO.UserDao;
 import com.example.bidbound.entities.user;
 
@@ -22,10 +20,8 @@ public abstract class AppDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "BidboundBase")
                     .allowMainThreadQueries()
                     .build();
-
         }
         return instance;
     }
-
 
 }
