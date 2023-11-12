@@ -135,13 +135,27 @@ public class ProjectsActivity extends AppCompatActivity {
                 }
             }
             if (!found) {
-                showSearchResult("No project found with given name or subject");
+                showNoSearchResult(query);
             }
             fis.close();
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(this, "Error occurred during search", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showNoSearchResult(String query) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Search Result");
+        builder.setMessage("No Results Found for: "+"'"+query+"'");
+        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void showSearchResult(String message) {
@@ -244,6 +258,7 @@ public class ProjectsActivity extends AppCompatActivity {
             // Handle exceptions appropriately
         }
     }
+
 
 }
 
