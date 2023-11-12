@@ -94,19 +94,22 @@
 
 
              <View
+                 android:id="@+id/email"
                  android:layout_width="wrap_content"
-                 android:layout_height="30dp"/>
+                 android:layout_height="30dp" />
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Email Address"
                  android:alpha="0.7"
                  android:textStyle="bold"/>
+
              <EditText
+                 android:id="@+id/email_l"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:inputType="textEmailAddress"
-                 android:drawableEnd="@drawable/baseline_email_24"/>
+                 android:drawableEnd="@drawable/baseline_email_24"
+                 android:inputType="textEmailAddress" />
 
              <TextView
                  android:layout_width="wrap_content"
@@ -114,11 +117,13 @@
                  android:text="Password"
                  android:alpha="0.7"
                  android:textStyle="bold"/>
+
              <EditText
+                 android:id="@+id/pwd"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:inputType="textPassword"
-                 android:drawableEnd="@drawable/baseline_password_24"/>
+                 android:drawableEnd="@drawable/baseline_password_24"
+                 android:inputType="textPassword" />
 
              <RelativeLayout
                  android:layout_width="match_parent"
@@ -150,10 +155,11 @@
                  android:layout_height="10dp"/>
 
              <com.google.android.material.button.MaterialButton
+                 android:id="@+id/login_btn"
                  android:layout_width="match_parent"
                  android:layout_height="60dp"
                  android:text="Login"
-                 app:cornerRadius="32dp"/>
+                 app:cornerRadius="32dp" />
              <View
                  android:layout_width="wrap_content"
                  android:layout_height="10dp"/>
