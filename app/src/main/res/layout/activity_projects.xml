@@ -8,14 +8,16 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="419dp"
-        android:layout_height="733dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/wallpaper2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title"
-        app:srcCompat="@drawable/wallpaper2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Title TextView -->
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
@@ -23,38 +25,55 @@
         android:background="#A8000000"
         android:text="All Projects"
         android:textColor="#FFFFFF"
-        android:textSize="50sp"
+        android:textSize="24sp"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
-        android:id="@+id/searchView"
+    <!-- Search and Action Buttons Container -->
+    <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="0dp"
-        android:layout_height="35dp"
-        app:layout_constraintEnd_toStartOf="@+id/projectDetails"
-        app:layout_constraintStart_toEndOf="@+id/AddProjectB"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="319dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:hint="Search"
+            android:textColorHint="#939292"
+            android:textColor="#FFFFFF" />
+
+
+        <ImageButton
+            android:id="@+id/projectDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_menu_edit" />
+    </LinearLayout>
 
     <ImageButton
-        android:id="@+id/AddProjectB"
-        android:layout_width="39dp"
-        android:layout_height="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:srcCompat="@android:drawable/ic_menu_search" />
 
     <ScrollView
-        android:layout_width="320dp"
-        android:layout_height="338dp"
-        app:layout_constraintBottom_toTopOf="@+id/projectNameToDeleteField"
+        android:layout_width="359dp"
+        android:layout_height="380dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <TextView
             android:id="@+id/projectsDataView"
@@ -64,34 +83,14 @@
             android:text="TextView" />
     </ScrollView>
 
-    <ImageButton
-        android:id="@+id/projectDetails"
-        android:layout_width="66dp"
-        android:layout_height="39dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
-    <EditText
-        android:id="@+id/projectNameToDeleteField"
-        android:layout_width="355dp"
-        android:layout_height="49dp"
-        android:ems="10"
-        android:hint="Project Name To Delete"
-        android:inputType="text"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#939292"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!-- Project Deletion Input and Button -->
 
     <ImageButton
-        android:id="@+id/deleteProjectButton"
+        android:id="@+id/AddProjectB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/projectNameToDeleteField"
-        app:srcCompat="@android:drawable/ic_delete" />
+        app:layout_constraintTop_toBottomOf="@+id/searchButton"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

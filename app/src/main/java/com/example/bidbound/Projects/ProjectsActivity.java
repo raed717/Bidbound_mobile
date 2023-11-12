@@ -1,8 +1,10 @@
 package com.example.bidbound.Projects;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,27 +16,38 @@ import android.widget.Toast;
 import com.example.bidbound.Projects.NewProject;
 import com.example.bidbound.R;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class ProjectsActivity extends AppCompatActivity {
 
-    private ImageButton ProjectDetails,AddProjectButton,deleteProjectButton;
+    private ImageButton ProjectDetails,AddProjectButton, searchButton;
     private TextView dataTextView;
-    private EditText projectNameToDeleteField;
+    private EditText searchEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
         AddProjectButton = (ImageButton) findViewById(R.id.AddProjectB);
+        searchButton = (ImageButton) findViewById(R.id.searchButton);
         ProjectDetails = (ImageButton) findViewById(R.id.projectDetails);
-        deleteProjectButton = (ImageButton) findViewById(R.id.deleteProjectButton);
 
-        projectNameToDeleteField = findViewById(R.id.projectNameToDeleteField);
+
+
+        searchEditText = findViewById(R.id.searchEditText);
         dataTextView = findViewById(R.id.projectsDataView);
 
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchProject(searchEditText.getText().toString());
+            }
+        });
         ProjectDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,15 +60,6 @@ public class ProjectsActivity extends AppCompatActivity {
                 openAddProject();
             }
         });
-
-        deleteProjectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String projectNameToDelete = projectNameToDeleteField.getText().toString();
-                deleteProject(projectNameToDelete);
-            }
-        });
-
 
         String data = readDataFromFile();
         String formattedData = formatData(data);
@@ -113,7 +117,87 @@ public class ProjectsActivity extends AppCompatActivity {
         }
         return formattedData.toString();
     }
+
+    private void searchProject(String query) {
+        try {
+            FileInputStream fis = openFileInput("project_data.txt");
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+            boolean found = false;
+            while ((line = br.readLine()) != null) {
+                String[] projectDetails = line.split(",");
+                if (projectDetails[0].equalsIgnoreCase(query) || projectDetails[1].equalsIgnoreCase(query)) {
+                    // Match found
+                    found = true;
+                    showSearchResult(formatData(line));
+                    break;
+                }
+            }
+            if (!found) {
+                showSearchResult("No project found with given name or subject");
+            }
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error occurred during search", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showSearchResult(String message) {
+        String[] lines = message.split("\n");
+        String projectName = "";
+        for (String line : lines) {
+            if (line.startsWith("Project Name")) {
+                String[] parts = line.split(":");
+                if (parts.length > 1) {
+                    projectName = parts[1].trim();
+                }
+                break;
+            }
+        }
+        String finalProjectName = projectName;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Search Result");
+        builder.setMessage(message);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked OK button
+            }
+        });
+
+        builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                deleteProject(finalProjectName);
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     private void deleteProject(String projectNameToDelete) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Search Result");
+        String message = "Are you sure that you want to delete  "+projectNameToDelete+"?";
+        builder.setMessage(message);
+        builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                //ConfirmDeleteProject(projectNameToDelete);
+            }
+        });
+        builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                ConfirmDeleteProject(projectNameToDelete);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+    private void ConfirmDeleteProject(String projectNameToDelete) {
         try {
             FileInputStream fis = openFileInput("project_data.txt");
             byte[] buffer = new byte[1024];
