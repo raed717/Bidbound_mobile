@@ -5,6 +5,7 @@ package com.example.bidbound.entities;
 
 @Entity
 public class user {
+
     @PrimaryKey(autoGenerate = true)
      public int id  ;
     @ColumnInfo
@@ -13,7 +14,6 @@ public class user {
     @ColumnInfo
     public  String email ;
     @ColumnInfo
-
     public  String password ;
 
     public user( String username, String email, String password) {

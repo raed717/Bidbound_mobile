@@ -8,6 +8,7 @@ import androidx.room.Query;
 import com.example.bidbound.entities.user;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface  UserDao {
@@ -15,8 +16,8 @@ public interface  UserDao {
     @Insert
     public  void addUser(user user);
 
-    @Query("Select * from user")
-    public ArrayList<user> getAll();
+
+
 
 
 

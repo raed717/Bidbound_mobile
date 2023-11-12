@@ -1,7 +1,7 @@
 package com.example.bidbound;
 
-import android.content.SharedPreferences;
-import android.os.Bundle;
+ import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -12,14 +12,14 @@ import com.example.bidbound.entities.user;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.widget.Toast;
+
 
 public class SignUpActivity extends AppCompatActivity {
-    SharedPreferences myPref ;
-    public static final String Pref = "MyPref";
-    EditText name , mail,  pass ;
+     EditText name , mail,  pass ;
     Button register ;
 
-private AppDatabase base;
+private AppDatabase instance;
 private List<user> user = new ArrayList<user>();
 
     @Override
@@ -31,21 +31,32 @@ private List<user> user = new ArrayList<user>();
         mail=findViewById(R.id.email);
         pass=findViewById(R.id.password);
         register=findViewById(R.id.signupbtn);
-        myPref = getSharedPreferences(Pref,MODE_PRIVATE);
-        SharedPreferences.Editor editor=myPref.edit();
 
 
 
         register.setOnClickListener(e -> {
-            editor.putString("name", name.getText().toString());
-            editor.putString("mail", mail.getText().toString());
-            editor.putString("pwd", pass.getText().toString());
-            editor.apply();
+
+            String userName = name.getText().toString();
+            String userEmail = mail.getText().toString();
+            String userPassword = pass.getText().toString();
+
+            if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty()) {
+                // Log a message if any field is empty
+                Log.d("SignUpActivity", "One or more fields are empty. User not added.");
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+
+            }
+            else {
+                AppDatabase.getAppDatabase(this).userDAO().addUser(new user(name.getText().toString(), mail.getText().toString(),pass.getText().toString()));
+                Log.d("SignUpActivity", "User added: ");
+                Toast.makeText(this, "User added successfully", Toast.LENGTH_SHORT).show();
+
+            }
 
 
 
 
-        });
+            });
 
 
     }

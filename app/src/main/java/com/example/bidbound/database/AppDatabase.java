@@ -1,5 +1,8 @@
 package com.example.bidbound.database;
 import android.content.Context;
+import android.util.Log;
+
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import com.example.bidbound.DAO.UserDao;
@@ -7,7 +10,7 @@ import com.example.bidbound.entities.user;
 
 
 
-@androidx.room.Database(entities = {user.class}, version = 1, exportSchema = false)
+@Database(entities = {user.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
 
@@ -20,6 +23,12 @@ public abstract class AppDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "BidboundBase")
                     .allowMainThreadQueries()
                     .build();
+            if (instance == null) {
+                Log.e("AppDatabase", "Database instance is null after creation");
+            } else {
+                Log.d("AppDatabase", "Database created!");
+            }
+
         }
         return instance;
     }
