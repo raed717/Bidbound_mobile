@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
+import com.example.bidbound.DAO.MemberDAO;
 
 import com.example.bidbound.DAO.ProjectDAO;
 import com.example.bidbound.entities.Converters;
@@ -17,7 +18,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static  AppDatabase instance ;
     public abstract ProjectDAO projectDAO();
-
+  public abstract ProjectDAO MemberDAO();
 
     public static AppDatabase getAppDatabase(Context context) {
         if (instance == null) {
