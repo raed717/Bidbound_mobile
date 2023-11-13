@@ -3,6 +3,7 @@ package com.example.bidbound.Projects;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,14 +14,20 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bidbound.R;
+import com.example.bidbound.database.AppDatabase;
+import com.example.bidbound.entities.Project;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class NewProject extends AppCompatActivity {
     private String selectedDate;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     private EditText projectNameEditText, projectSubjectEditText;
     private Button datePickerButton, addNewProject_button, Clear_button;
@@ -37,7 +44,6 @@ public class NewProject extends AppCompatActivity {
         allprojectsButton = (Button) findViewById(R.id.allprojects_button);
         Clear_button = findViewById(R.id.Clear_button);
 
-        //deleteAllData();
 
         datePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,28 +54,10 @@ public class NewProject extends AppCompatActivity {
         addNewProject_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Retrieve data from the input fields
-                String projectName = projectNameEditText.getText().toString();
-                String projectSubject = projectSubjectEditText.getText().toString();
-                Boolean formCheck = true;
-
-
-                if (selectedDate == null || selectedDate.isEmpty() || projectNameEditText == null || projectSubjectEditText == null) {
-                    Toast.makeText(NewProject.this, "Please fill the entire form", Toast.LENGTH_SHORT).show();
-                    formCheck = true; // for test
-                    return;
-                }
-
-                if(formCheck){
-                    Log.d("NewProject", "Project Name: " + projectName);
-                    Log.d("NewProject", "Project Subject: " + projectSubject);
-                    Log.d("NewProject", "Selected Date: " + selectedDate);
-                    Toast.makeText(NewProject.this, "New project added successfully", Toast.LENGTH_SHORT).show();
-                    saveDataToFile(projectName, projectSubject, selectedDate);
-                    logDataFromFile();
-                }
+                addNewProject();
             }
         });
+
         allprojectsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +72,24 @@ public class NewProject extends AppCompatActivity {
             }
         });
     }
+
+    private void addNewProject() {
+        String projectName = projectNameEditText.getText().toString();
+        String projectSubject = projectSubjectEditText.getText().toString();
+        Date startDate = null;
+        try {
+            startDate = dateFormat.parse(selectedDate);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Please select a valid date", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        final Project newProject = new Project(projectName, projectSubject, startDate);
+        new InsertProjectTask(this).execute(newProject);
+
+    }
+
     public void openProjectsActivity(){
         Intent intent = new Intent(this, ProjectsActivity.class);
         startActivity(intent);
@@ -104,42 +110,32 @@ public class NewProject extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    private void saveDataToFile(String projectName, String projectSubject, String selectedDate) {
-        try {
-            String data = projectName + "," + projectSubject + "," + selectedDate + "\n";
-            FileOutputStream fos = openFileOutput("project_data.txt", Context.MODE_APPEND);
-            fos.write(data.getBytes());
-            fos.close();
-            Toast.makeText(this, "Data saved successfully", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private static class InsertProjectTask extends AsyncTask<Project, Void, Void> {
+        private WeakReference<Context> contextReference;
 
-    private void logDataFromFile() {
-        try {
-            FileInputStream fis = openFileInput("project_data.txt");
-            byte[] buffer = new byte[1024];
-            int bytesRead = fis.read(buffer);
-            fis.close();
-            if (bytesRead > 0) {
-                String fileContent = new String(buffer, 0, bytesRead);
-                Log.d("NewProject", "Content of project_data.txt: " + fileContent);
+        InsertProjectTask(Context context) {
+            contextReference = new WeakReference<>(context);
+        }
+
+        @Override
+        protected Void doInBackground(Project... projects) {
+            Context context = contextReference.get();
+            if (context != null) {
+                AppDatabase db = AppDatabase.getAppDatabase(context);
+                db.projectDAO().insertProject(projects[0]);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            Context context = contextReference.get();
+            if (context != null) {
+                Toast.makeText(context, "Project added", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    private void deleteAllData() {
-        try {
-            FileOutputStream fos = openFileOutput("project_data.txt", Context.MODE_PRIVATE);
-            fos.close();
-            Toast.makeText(this, "All data deleted successfully", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
 }
