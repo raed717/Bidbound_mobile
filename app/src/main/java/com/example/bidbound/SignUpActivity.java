@@ -37,9 +37,15 @@ private List<user> user = new ArrayList<user>();
             String userPassword = pass.getText().toString();
 
             if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty()) {
-                // Log a message if any field is empty
-                Log.d("SignUpActivity", "One or more fields are empty. User not added.");
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+
+                    // Log a message if any field is empty
+                    Log.d("SignUpActivity", "One or more fields are empty. User not added.");
+                    Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+
+
+        } else if (!isValidEmail(userEmail)) {
+                // Show a message if email has an invalid format
+                Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show();
 
             }
             else {
@@ -54,7 +60,10 @@ private List<user> user = new ArrayList<user>();
 
             });
 
-
     }
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+        return email.matches(emailPattern);
+    }
 }
