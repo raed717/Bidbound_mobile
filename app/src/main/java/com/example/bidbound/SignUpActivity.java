@@ -1,22 +1,18 @@
 package com.example.bidbound;
-
- import android.os.Bundle;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.bidbound.database.AppDatabase;
 import com.example.bidbound.entities.user;
-
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.Toast;
 
 
 public class SignUpActivity extends AppCompatActivity {
-     EditText name , mail,  pass ;
+    EditText name , mail,  pass ;
     Button register ;
 
 private AppDatabase instance;
