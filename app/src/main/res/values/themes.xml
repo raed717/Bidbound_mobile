@@ -14,5 +14,10 @@
 
     </style>
 
-    <style name="Theme.BidBound" parent="Base.Theme.BidBound" />
+    <style name="Theme.BidBound" parent="Base.Theme.BidBound">
+
+    <item name="android:activityOpenEnterAnimation">@anim/slide_out_right</item>
+    <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+
+    </style>
 </resources>

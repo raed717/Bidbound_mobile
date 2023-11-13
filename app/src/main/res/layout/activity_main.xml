@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/github"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/my_primary"
-        android:alpha="0.7">
+        android:alpha="0.7"
+        android:background="@color/my_primary">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,35 +21,33 @@
             android:orientation="vertical"
             android:padding="40dp"
             tools:ignore="MissingConstraints">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:layout_marginTop="-10dp"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            app:cardCornerRadius="28dp"
             android:layout_marginBottom="-20dp"
-            android:id="@+id/card_view"
-            />
+            app:cardCornerRadius="28dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="28dp">
-        </LinearLayout>
+            android:padding="28dp"></LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -64,137 +62,143 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
 
         >
 
-         <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="30dp">
 
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Welcome"
-                 android:textColor="@color/my_primary"
-                 android:textSize="32sp"
-                 android:textStyle="bold"
-                  />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:textColor="@color/my_primary"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Please login with your information"
-                 android:alpha="0.7"/>
-
-
-             <View
-                 android:id="@+id/email"
-                 android:layout_width="wrap_content"
-                 android:layout_height="30dp" />
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Email Address"
-                 android:alpha="0.7"
-                 android:textStyle="bold"/>
-
-             <EditText
-                 android:id="@+id/email_l"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:drawableEnd="@drawable/baseline_email_24"
-                 android:inputType="textEmailAddress" />
-
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Password"
-                 android:alpha="0.7"
-                 android:textStyle="bold"/>
-
-             <EditText
-                 android:id="@+id/pwd"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:drawableEnd="@drawable/baseline_password_24"
-                 android:inputType="textPassword" />
-
-             <RelativeLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content">
-
-                 <CheckBox
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="Remember me"
-                     android:layout_centerVertical="true"
-                     android:alpha="0.7"/>
-
-                 <TextView
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="Sign up"
-                     android:layout_alignParentEnd="true"
-                     android:id="@+id/SignUpTextView"
-                     android:clickable="true"
-                     android:focusable="true"
-                     android:layout_centerVertical="true"/>
-
-             </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="Please login with your information" />
 
 
+            <View
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-             <View
-                 android:layout_width="wrap_content"
-                 android:layout_height="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="Email Address"
+                android:textStyle="bold" />
 
-             <com.google.android.material.button.MaterialButton
-                 android:id="@+id/login_btn"
-                 android:layout_width="match_parent"
-                 android:layout_height="60dp"
-                 android:text="Login"
-                 app:cornerRadius="32dp" />
-             <View
-                 android:layout_width="wrap_content"
-                 android:layout_height="10dp"/>
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Or Login with"
-                 android:layout_gravity="center"
-                 android:alpha="0.7"/>
+            <EditText
+                android:id="@+id/email_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/baseline_email_24"
+                android:inputType="textEmailAddress" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="Password"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/baseline_password_24"
+                android:inputType="textPassword" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:alpha="0.7"
+                    android:text="Remember me" />
+
+                <TextView
+                    android:id="@+id/SignUpTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Sign up" />
 
 
-             <ImageView
-                 android:layout_width="40dp"
-                 android:layout_height="40dp"
-                 android:layout_margin="10dp"
-                  android:background="@drawable/github"
+            </RelativeLayout>
 
-                 />
- </LinearLayout>
 
-         </LinearLayout>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Login"
+                app:cornerRadius="32dp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:alpha="0.7"
+                android:text="Or Login with" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/github"
+
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
 
-
-
-
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

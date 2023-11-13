@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_project"
+        android:icon="@drawable/baseline_folder_24"
+        android:title="Project" />
+    <item
+        android:id="@+id/bottom_equipe"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Equipe" />
+    <item
+        android:id="@+id/bottom_tache"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Tache" />
+    <item
+        android:id="@+id/bottom_dec"
+        android:icon="@drawable/baseline_logout_24"
+        android:title="Deconnexion" />
+
+
+
+</menu>
