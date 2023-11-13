@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.65999997">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textViewBudget"
             android:layout_width="210dp"
             android:layout_height="33dp"
             android:layout_weight="1"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textViewdate"
             android:layout_width="210dp"
             android:layout_height="33dp"
             android:layout_weight="1"
@@ -104,7 +104,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textViewteam"
             android:layout_width="210dp"
             android:layout_height="33dp"
             android:layout_weight="1"
@@ -134,7 +134,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textViewsubject"
             android:layout_width="210dp"
             android:layout_height="33dp"
             android:layout_weight="1"
@@ -142,13 +142,12 @@
             android:textColor="#FFFFFF" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/editTextProjectCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:text="Health"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
@@ -163,7 +162,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textViewProjectName"
             android:layout_width="210dp"
             android:layout_height="33dp"
             android:layout_weight="1"
@@ -171,18 +170,17 @@
             android:textColor="#FFFFFF" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/editTextProjectName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:text="Project 1"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/UpdateButton"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

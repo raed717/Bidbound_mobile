@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,17 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
     private List<Project> projects;
     private Context context;
+
+    public interface ProjectAdapterListener {
+        void onEditProject(Project project);
+    }
+    private ProjectAdapterListener listener;
+
+    public ProjectAdapter(Context context, List<Project> projects, ProjectAdapterListener listener) {
+        this.context = context;
+        this.projects = projects;
+        this.listener = listener;
+    }
 
     public ProjectAdapter(Context context, List<Project> projects) {
         this.context = context;
@@ -40,6 +52,15 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
         holder.projectCategoryTextView.setText(project.getProjectCategory());
         holder.projectStartDateTextView.setText(project.getStartDate().toString());
         // Bind other views in holder as needed
+
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onEditProject(project);
+                }
+            }
+        });
     }
 
     @Override
@@ -51,14 +72,14 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
         TextView projectNameTextView;
         TextView projectCategoryTextView;
         TextView projectStartDateTextView;
-        // Other views
+        ImageButton editButton;
 
         ProjectViewHolder(View itemView) {
             super(itemView);
             projectNameTextView = itemView.findViewById(R.id.projectNameTextView);
             projectCategoryTextView = itemView.findViewById(R.id.projectCategoryTextView);
             projectStartDateTextView = itemView.findViewById(R.id.projectStartDateTextView);
-            // Initialize other views
+            editButton = itemView.findViewById(R.id.editButton);
         }
     }
 }

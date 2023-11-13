@@ -31,9 +31,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjectsActivity extends AppCompatActivity {
+public class ProjectsActivity extends AppCompatActivity implements ProjectAdapter.ProjectAdapterListener {
 
-    private ImageButton ProjectDetails,AddProjectButton, searchButton, deleteButton;
+    private ImageButton AddProjectButton, searchButton, deleteButton;
     private EditText searchEditText;
 
     private RecyclerView projectsRecyclerView;
@@ -47,13 +47,12 @@ public class ProjectsActivity extends AppCompatActivity {
         AddProjectButton = (ImageButton) findViewById(R.id.AddProjectB);
         deleteButton = (ImageButton) findViewById(R.id.deleteButton);
         searchButton = (ImageButton) findViewById(R.id.searchButton);
-        ProjectDetails = (ImageButton) findViewById(R.id.projectDetails);
 
         searchEditText = findViewById(R.id.searchEditText);
 
         projectsRecyclerView = findViewById(R.id.projectsDataView);
         projectList = new ArrayList<>(); // Replace with actual data retrieval
-        projectAdapter = new ProjectAdapter(this, projectList);
+        projectAdapter = new ProjectAdapter(this, projectList, this);
         projectsRecyclerView.setAdapter(projectAdapter);
         loadProjects();
         projectsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -65,12 +64,7 @@ public class ProjectsActivity extends AppCompatActivity {
                 searchProject(searchEditText.getText().toString());
             }
         });
-        ProjectDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openProjectDetails();
-            }
-        });
+
         AddProjectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,12 +82,20 @@ public class ProjectsActivity extends AppCompatActivity {
 
     }
 
-
-
-    public void openProjectDetails(){
-        Intent intent = new Intent(this, com.example.bidbound.Projects.ProjectDetails.class);
+    @Override
+    public void onEditProject(Project project) {
+        Intent intent = new Intent(this, ProjectDetails.class);
+        intent.putExtra("projectId", project.getId());
         startActivity(intent);
     }
+
+
+    public void editProject(Project project){
+        Intent intent = new Intent(this, com.example.bidbound.Projects.ProjectDetails.class);
+        intent.putExtra("projectId", project.getId()); // Pass the project ID or the whole object if it's Parcelable or Serializable
+        startActivity(intent);
+    }
+
 
     public void openAddProject(){
         Intent intent = new Intent(this, NewProject.class);
