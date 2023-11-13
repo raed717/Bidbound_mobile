@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
+ import android.widget.Toast;
 
 import com.example.bidbound.database.AppDatabase;
 import com.example.bidbound.R;
@@ -33,10 +32,10 @@ public class addTeam extends AppCompatActivity {
         expertise = findViewById(R.id.teamExp);
         name = findViewById(R.id.teamName);
         message = findViewById(R.id.teamMessage);
-        database = database.getAppDatabase(context);
+        database = AppDatabase.getAppDatabase(context);
         teamList = new ArrayList<>();
-       // Spinner teamStatusSpinner = findViewById(R.id.teamStatusSpinner);
-      //  String status = teamStatusSpinner.getSelectedItem().toString();
+        // Spinner teamStatusSpinner = findViewById(R.id.teamStatusSpinner);
+        //  String status = teamStatusSpinner.getSelectedItem().toString();
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +45,7 @@ public class addTeam extends AppCompatActivity {
                 newTeam.setTeamName(name.getText().toString());
                 newTeam.setTeamMessage(message.getText().toString());
                 newTeam.setExpertise(expertise.getText().toString());
-               // newTeam.setTeamStatus(status);
+                // newTeam.setTeamStatus(status);
                 database.teamDAO().insertOne(newTeam);
                 listUpdate();
                 for(Team team : teamList){
