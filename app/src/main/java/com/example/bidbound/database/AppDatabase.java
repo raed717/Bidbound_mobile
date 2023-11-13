@@ -17,7 +17,6 @@ public abstract class AppDatabase extends RoomDatabase {
     private static  AppDatabase instance ;
     public abstract UserDao userDAO();
 
-
     public static AppDatabase getAppDatabase(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "BidboundBase")
