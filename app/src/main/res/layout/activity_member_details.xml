@@ -62,7 +62,7 @@
             android:layout_width="210dp"
             android:layout_height="33dp"
             android:layout_weight="1"
-            android:text="Start Date"
+            android:text="Birth Date"
             android:textColor="#FFFFFF" />
 
         <EditText
@@ -72,7 +72,6 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:text="08/07/2023"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
@@ -102,7 +101,6 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:text="Bidbound"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
@@ -132,7 +130,6 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:text="Health"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
@@ -161,7 +158,6 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:text="Member 1"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
