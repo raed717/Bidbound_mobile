@@ -13,9 +13,9 @@ import com.example.bidbound.database.AppDatabase;
 import com.example.bidbound.entities.user;
 
 public class MainActivity extends AppCompatActivity {
-TextView signup;
- EditText login , password ;
-Button save ;
+        TextView signup;
+         EditText login , password ;
+        Button save ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

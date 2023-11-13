@@ -15,14 +15,13 @@ public class SignUpActivity extends AppCompatActivity {
     EditText name , mail,  pass ;
     Button register ;
 
-private AppDatabase instance;
-private List<user> user = new ArrayList<user>();
+        private AppDatabase instance;
+        private List<user> user = new ArrayList<user>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
-
         name=findViewById(R.id.username);
         mail=findViewById(R.id.email);
         pass=findViewById(R.id.password);
@@ -38,14 +37,12 @@ private List<user> user = new ArrayList<user>();
 
             if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty()) {
 
-                    // Log a message if any field is empty
-                    Log.d("SignUpActivity", "One or more fields are empty. User not added.");
+                     Log.d("SignUpActivity", "One or more fields are empty. User not added.");
                     Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
 
 
         } else if (!isValidEmail(userEmail)) {
-                // Show a message if email has an invalid format
-                Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show();
 
             }
             else {
