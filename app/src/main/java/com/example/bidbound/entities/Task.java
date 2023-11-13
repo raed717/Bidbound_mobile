@@ -11,11 +11,12 @@ public class Task {
     public int id  ;
     @ColumnInfo
     public  String TaskName ;
-
+    public Task() {
+    }
     @ColumnInfo
     public  String TaskDescription ;
     @ColumnInfo
-    public int Complexite ;
+    public String Complexite ;
 
     public int getId() {
         return id;
@@ -47,8 +48,8 @@ public class Task {
         return TaskDescription;
     }
 
-    public Task(int id, String taskName, String taskDescription, int complexite) {
-        this.id = id;
+    public Task( String taskName, String taskDescription, String complexite) {
+
         TaskName = taskName;
         TaskDescription = taskDescription;
         Complexite = complexite;
@@ -59,11 +60,11 @@ public class Task {
         TaskDescription = taskDescription;
     }
 
-    public int getComplexite() {
+    public String getComplexite() {
         return Complexite;
     }
 
-    public void setComplexite(int complexite) {
+    public void setComplexite(String complexite) {
         Complexite = complexite;
     }
 }
