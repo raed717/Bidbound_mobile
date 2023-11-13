@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#A8000000"
-        android:text="All Projects"
+        android:text="All Members"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:gravity="center"
@@ -53,7 +53,7 @@
 
 
         <ImageButton
-            android:id="@+id/projectDetails"
+            android:id="@+id/memberDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/ic_menu_edit" />
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <TextView
-            android:id="@+id/projectsDataView"
+            android:id="@+id/membersDataView"
             android:layout_width="418dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -86,7 +86,7 @@
     <!-- Project Deletion Input and Button -->
 
     <ImageButton
-        android:id="@+id/AddProjectB"
+        android:id="@+id/AddMemberB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
