@@ -37,6 +37,15 @@
             android:name=".Membres.MemberActivity"
             android:exported="false" />
         <activity
+        android:name=".Taches.Fragments.DetailsTache"
+        android:exported="true" />
+        <activity
+            android:name=".Taches.Fragments.AjouterTache"
+            android:exported="true" />
+        <activity
+            android:name=".Taches.Fragments.AfficherListTaches"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
