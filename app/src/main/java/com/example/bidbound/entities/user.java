@@ -3,7 +3,7 @@ package com.example.bidbound.entities;
  import androidx.room.Entity;
  import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "user")
 public class user {
 
     @PrimaryKey(autoGenerate = true)

@@ -12,7 +12,6 @@ public interface  UserDao {
 
     @Insert
     public  void addUser(user user);
-
     @Query("SELECT * FROM user WHERE email = :email AND password = :password")
     user signIn(String email, String password);
 
