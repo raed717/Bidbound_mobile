@@ -17,7 +17,15 @@
             android:exported="false"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.BidBound" />
-
+        <activity
+            android:name=".Projects.NewProject"
+            android:exported="false" />
+        <activity
+            android:name=".Projects.ProjectMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Projects.ProjectsActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.AllTeamsActivity"
             android:exported="false" />

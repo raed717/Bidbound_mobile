@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bidbound.activity.addTeam;
+import com.example.bidbound.Projects.ProjectMenuActivity;
+
 import com.example.bidbound.database.AppDatabase;
 import com.example.bidbound.entities.user;
 
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         signup=findViewById(R.id.SignUpTextView);
         signup.setOnClickListener(e -> {
-            Intent intent = new Intent(this, addTeam.class);
+            Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
         });
     }
