@@ -12,6 +12,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BidBound"
         tools:targetApi="31">
+
+        <activity
+            android:name=".Membres.MemberMenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Taches.TacheMainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+                <activity
+                    android:name=".Membres.MemberDetails"
+                    android:exported="false" />
+                <activity
+                    android:name=".Membres.NewMember"
+                    android:exported="false" />
+                <activity
+                    android:name=".Membres.MemberActivity"
+                    android:exported="false" />
+        <activity
+            android:name=".Taches.Fragments.DetailsTacheFragment"
+            android:exported="true" />
+        <activity
+            android:name=".Taches.Fragments.AjouterTache"
+            android:exported="true" />
+        <activity
+            android:name=".Taches.Fragments.AfficherListTachesFragment"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,6 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

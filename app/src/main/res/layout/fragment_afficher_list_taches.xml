@@ -88,12 +88,12 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="359dp"
         android:layout_height="380dp"
         android:layout_marginBottom="176dp"
-        app:layout_constraintBottom_toBottomOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout55"
         app:layout_constraintVertical_bias="0.341">
@@ -117,11 +117,17 @@
         app:srcCompat="@android:drawable/ic_delete"
         android:contentDescription="Delete selected task" />
 
-
-
-
-
-
+    <Button
+        android:id="@+id/HomeTask"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:text="Home"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
