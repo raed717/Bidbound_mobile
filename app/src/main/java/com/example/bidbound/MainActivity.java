@@ -38,9 +38,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (signedInUser != null) {
                      Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, ProjectMenuActivity.class);
+
+                    // You can also pass data to the new activity using extras if needed
+                    // intent.putExtra("key", "value");
+
+                    // Start the new activity
+                    startActivity(intent);
 
 
-                 } else {
+                } else {
                      Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                 }
             } else {

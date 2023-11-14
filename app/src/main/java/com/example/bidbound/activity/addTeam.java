@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
  import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.bidbound.Projects.ProjectMenuActivity;
+import com.example.bidbound.MainActivity;
 
 import com.example.bidbound.SignUpActivity;
 import com.example.bidbound.database.AppDatabase;
@@ -50,12 +52,26 @@ public class addTeam extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                          if (item.getItemId() == R.id.bottom_dec) {
-                            startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             overridePendingTransition(R.anim.slide_out_right, R.anim.slide_out_left);
                             finish();
-                            return true;
 
-                          }
+
+                            return true;
+                         } else if (item.getItemId() == R.id.bottom_equipe) {
+                             startActivity(new Intent(getApplicationContext(), AllTeamsActivity.class));
+                             overridePendingTransition(R.anim.slide_out_right, R.anim.slide_out_left);
+                             finish();
+                             return true;
+
+
+                    } else if (item.getItemId() == R.id.bottom_project) {
+                        startActivity(new Intent(getApplicationContext(), ProjectMenuActivity.class));
+                        overridePendingTransition(R.anim.slide_out_right, R.anim.slide_out_left);
+                        finish();
+                        return true;
+                    }
+
                         return true;
                     }
                 });

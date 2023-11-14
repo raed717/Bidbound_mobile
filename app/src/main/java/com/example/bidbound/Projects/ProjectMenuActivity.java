@@ -12,7 +12,9 @@ import android.widget.Button;
 import com.example.bidbound.MainActivity;
 import com.example.bidbound.R;
 import com.example.bidbound.SignUpActivity;
+import com.example.bidbound.activity.addTeam;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.bidbound.MainActivity;
 
 public class ProjectMenuActivity extends AppCompatActivity {
 
@@ -36,12 +38,19 @@ public class ProjectMenuActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         if (item.getItemId() == R.id.bottom_dec) {
-                            startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             overridePendingTransition(R.anim.slide_out_right, R.anim.slide_out_left);
                             finish();
                             return true;
 
-                        }
+
+
+                    } else if (item.getItemId() == R.id.bottom_equipe) {
+                            startActivity(new Intent(getApplicationContext(), addTeam.class));
+                            overridePendingTransition(R.anim.slide_out_right, R.anim.slide_out_left);
+                            finish();
+                            return true;
+                    }
                         return true;
                     }
                 });
