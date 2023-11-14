@@ -217,7 +217,7 @@ public class AfficherListTachesFragment extends AppCompatActivity {
         builder.setMessage(message);
         builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                //ConfirmDeleteProject(projectNameToDelete);
+                ConfirmDeleteTask(TaskNameToDelete);
             }
         });
         builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
