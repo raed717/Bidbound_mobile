@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         signup=findViewById(R.id.SignUpTextView);
         signup.setOnClickListener(e -> {
-            Intent intent = new Intent(this, SignUpActivity.class);
+            Intent intent = new Intent(this, addTeam.class);
             startActivity(intent);
         });
     }

@@ -1,14 +1,19 @@
 package com.example.bidbound.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
  import android.widget.Toast;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.example.bidbound.SignUpActivity;
 import com.example.bidbound.database.AppDatabase;
 import com.example.bidbound.R;
 import com.example.bidbound.entities.Team;
@@ -27,6 +32,7 @@ public class addTeam extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_team);
+
         context = this;
         add = findViewById(R.id.addteamBtn);
         expertise = findViewById(R.id.teamExp);
@@ -36,6 +42,26 @@ public class addTeam extends AppCompatActivity {
         teamList = new ArrayList<>();
         // Spinner teamStatusSpinner = findViewById(R.id.teamStatusSpinner);
         //  String status = teamStatusSpinner.getSelectedItem().toString();
+
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                         if (item.getItemId() == R.id.bottom_dec) {
+                            startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                            overridePendingTransition(R.anim.slide_out_right, R.anim.slide_out_left);
+                            finish();
+                            return true;
+
+                          }
+                        return true;
+                    }
+                });
+
+
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +82,13 @@ public class addTeam extends AppCompatActivity {
                 String allData = stringBuilder.toString();
                 showToast(allData);
             }
+
+
+
         });
+
+
+
     }
     private void listUpdate(){
         teamList.clear();
