@@ -21,6 +21,9 @@
             android:name=".Projects.NewProject"
             android:exported="false" />
         <activity
+            android:name=".Projects.ProjectDetails"
+            android:exported="false" />
+        <activity
             android:name=".Projects.ProjectMenuActivity"
             android:exported="false" />
         <activity
